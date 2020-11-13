@@ -1,0 +1,17 @@
+body {
+    background-color: lightblue;
+    color: black
+    
+  }
+
+  .jumbotron {
+    background-image: url("bacteria.jpg");
+    background-size: 75% 150%;
+    text-align: tile;
+    
+  }
+
+  p {
+    color: black;
+    text-shadow: black;
+   }
