@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bellybutton Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Belly Button Biodiversity Dashboard</h1>
+        <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div>
+    <div class ="container"></div>
+    <div class="row">
+      <div style="background-blend-mode: gray;"  class="col-md-2">
+        <div style= "align-content: center ;" class="well">
+          <h4>Belly Button ID:</h4>
+          <!-- <select id="selDataset"></select> -->
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div style=" background-color: plum;" class="panel-heading">
+            <h3 class="panel-title">Demographic Info</h3>
+            </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div id="bar"></div><br>
+        <p style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: larger; font-weight: 300; align-items: center;">
+          The above bar chart depicts the various bacteria culture found in respective belly button samples.<br>
+          Data reveals handful microbial species (here OTU - operational taxonomic units).
+        </p>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div><br>
+        <p style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: larger; font-weight: 300; align-items: center;">
+          How often do you wash your belly button?<br>
+          </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div><br>
+        <p style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: larger; font-weight: 300;">
+          The above dynamic bubble chart depicts bacteria with respect to ID which is catagorized by a series number.<br>
+          The sample value shows how common it is for the series/ catagorized bacteria residing in our volunteers navels.<br>
+         </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="charts.js"></script>
+
+</body>
+
+</html>
