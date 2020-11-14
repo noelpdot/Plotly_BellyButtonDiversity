@@ -24,21 +24,3 @@ body {
      padding-top: 30px;
      padding-bottom: 30px;
    }
-
-   #bubble {
-    position: relative;
-    margin: auto;
-    
-    outline: 3px solid gray;
-   }
-
-   #bar {
-    margin: auto;
-    
-    outline: 3px solid gray;
-}
-  #gauge {
-    margin: auto;
-    
-    outline: 3px solid gray;
-}
