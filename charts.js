@@ -140,9 +140,7 @@ function buildCharts(sample) {
       title: "Bacteria Cultures Per Sample",
       showlegend: false,
       xaxis: { title: "OTU ID"},
-      yaxis: { title: "Sample Values"},
-      height: 600,
-      width: 1145
+      yaxis: { title: "Sample Values"}
     };
 
     // 3B. Use Plotly to plot the data with the layout.
