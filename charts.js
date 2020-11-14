@@ -141,7 +141,8 @@ function buildCharts(sample) {
       showlegend: false,
       xaxis: { title: "OTU ID"},
       yaxis: { title: "Sample Values"},
-    
+      height: 600,
+      width: 1145
     };
 
     // 3B. Use Plotly to plot the data with the layout.
