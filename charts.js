@@ -69,7 +69,7 @@ function buildCharts(sample) {
     // 6A. Create variables that hold the otu_ids, otu_labels, and sample_values.
     // Hint: Get the the top 10 otu_ids and map them in descending order
     //  so the otu_ids with the most bacteria are last.
-    var array =[];
+    // var array =[];
     var ids = results.otu_ids;
     // console.log(ids);
     var labels = results.otu_labels;
@@ -77,36 +77,38 @@ function buildCharts(sample) {
     var sV = results.sample_values;
     // console.log(sV);
 
-    array = [{
-      "otu_id": ids,
-      "otu_labels": labels,
-      "sample_values": sV
-    }];
+    // array = [{
+    //   "otu_id": ids,
+    //   "sample_values": sV
+    // }];
     // console.log(array);
 
+    var keyValue ={};
+
+    ids.map((k,i) => keyValue[k] = sV[i]);
+    console.log(keyValue);
     // sorting
-    sortedArray = array.sort((a,b) => parseInt(b.sample_values) - parseInt(a.sample_values));
+    // sortedArray = array.sort((a,b) => (b.sample_values) - (a.sample_values));
     // console.log(sortedArray);
 
-    var newIds = sortedArray[0].otu_id.slice(0,10).reverse().map(id => "OTU " +id);;
-    // console.log(newIds);
-    var newLabels = sortedArray[0].otu_labels.slice(0,10).reverse();
+    var newIds = Object.entries(keyValue).sort((a,b)=> b[1]-a[1]).map(k =>k[0]).slice(0,10); //.map(id => "OTU " +id);
+    console.log(newIds);
+    // var newLabels = sortedArray[0].otu_labels.slice(0,10).reverse();
     // console.log(newLabels);
-    var newSV = sortedArray[0].sample_values.slice(0,10).reverse();
-    // console.log(newSV);
+    var newSV = Object.entries(keyValue).sort((a,b)=> b[1]-a[1]).map(k => k[1]).slice(0,10).reverse();
+    console.log(newSV);
 
     // 7A. Create the yticks for the bar chart.
-    var yticks = {
-      y: newIds,
-      x: newSV,
-      text: newLabels,
-      type: "bar",
-      orientation: "h",
-    };
+    var yticks = newIds.map(id => 'OTU ' + id);
 
     // 8A. Create the trace for the bar chart. 
-    var barData = [
-      yticks
+    var barData = [ {
+        y: yticks,
+        x: newSV,
+        text: labels,
+        type: "bar",
+        orientation: "h",
+      }
     ];
 
     // 9A. Create the layout for the bar chart. 
